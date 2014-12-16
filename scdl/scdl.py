@@ -297,7 +297,7 @@ def download_track(track):
         try:
             stream_url = client.get(track.stream_url, allow_redirects=False)
         except:
-            print('HTTP Error, track may not exist!')
+            print('HTTP Error, track may not be streamable or API widget accessible!')
             return
     else:
         print('%s is not streamable...' % (track.title))
