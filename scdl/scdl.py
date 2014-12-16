@@ -294,7 +294,11 @@ def download_track(track):
     arguments = docopt(__doc__, version='0.1')
 
     if track.streamable:
-        stream_url = client.get(track.stream_url, allow_redirects=False)
+        try:
+            stream_url = client.get(track.stream_url, allow_redirects=False)
+        except:
+            print('HTTP Error, track may not exist!')
+            return
     else:
         print('%s is not streamable...' % (track.title))
         print('')
